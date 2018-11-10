@@ -13,7 +13,7 @@ lint: ## Run the golint
 	@golint -set_exit_status ${PKG_LIST}
 
 build: ## Build the binary file
-	@env GOOS=linux go build -i -o ${BINARY}
+	@env  GOARCH=amd64 GOOS=linux go build -i -o ${BINARY}
 
 clean: ## Remove the previous build
 	@rm -f ${BINARY}
