@@ -1,8 +1,13 @@
 language: go
+
 services:
   - docker
+
+install:
+  - make dep
+  - go get -u github.com/golang/lint/golint
+
 script:
-- make dep
 - make lint
 - make build
-- ls
+- file mittekugel
