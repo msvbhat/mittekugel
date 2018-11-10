@@ -12,8 +12,8 @@ dep: ## Get the dependencies
 lint: ## Run the golint
 	@golint -set_exit_status ${PKG_LIST}
 
-build: ## Build the binary file
-	@env  GOARCH=amd64 GOOS=linux go build -i -o ${BINARY}
+build: ## Build the static binary
+	@env CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -i -o ${BINARY}
 
 clean: ## Remove the previous build
 	@rm -f ${BINARY}
