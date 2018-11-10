@@ -10,4 +10,6 @@ install:
 script:
 - make lint
 - make build
-- file mittekugel
+- docker build -t msvbhat/mittekugel:${TRAVIS_JOB_NUMBER} .
+- echo ${DOCKER_HUB_PASSWORD} | docker login -u ${DOCKER_HUB_USERNAME} --password-stdin
+- docker push msvbhat/mittekugel:${TRAVIS_JOB_NUMBER}
