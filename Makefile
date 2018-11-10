@@ -12,6 +12,9 @@ dep: ## Get the dependencies
 lint: ## Run the golint
 	@golint -set_exit_status ${PKG_LIST}
 
+test: ## Run unit tests
+	@go test -short ${PKG_LIST}
+
 build: ## Build the static binary
 	@env CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -i -o ${BINARY}
 
