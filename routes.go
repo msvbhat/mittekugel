@@ -36,4 +36,16 @@ var routes = Routes{
 		Pattern:     "/",
 		HandlerFunc: StartPage,
 	},
+	Route{
+		Name:        "PostNodeMetrics",
+		Method:      "GET", // Should be changed to POST after using DB
+		Pattern:     "/v1/metrics/node/{nodename}",
+		HandlerFunc: PostNodeMetrics,
+	},
+	Route{
+		Name:        "GetNodeMetrics",
+		Method:      "GET",
+		Pattern:     "/v1/analytics/nodes/average/",
+		HandlerFunc: GetNodeMetrics,
+	},
 }
