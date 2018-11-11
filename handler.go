@@ -24,13 +24,13 @@ func PostNodeMetrics(w http.ResponseWriter, r *http.Request) {
 
 // GetNodeMetrics : handles GET on average node metrics
 func GetNodeMetrics(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "application/json;charset=UTF-8")
 	p := NodeMetrics{
 		Timeslice:   60.0,
 		NodeCPUTime: 42.0,
 		NodeMemUsed: 8.0,
 	}
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(p); err != nil {
 		panic(err)
 	}

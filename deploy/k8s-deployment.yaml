@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: mittekugel
-        image: msvbhat/mittekugel:6.1
+        image: msvbhat/mittekugel:10.1
         ports:
         - containerPort: 8080
         livenessProbe:
