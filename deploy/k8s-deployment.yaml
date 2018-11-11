@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mittekugel
+  labels:
+    app: mittekugel
+    env: staging
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: mittekugel
+  template:
+    metadata:
+      labels:
+        app: mittekugel
+        env: staging
+    spec:
+      containers:
+      - name: mittekugel
+        image: msvbhat/mittekugel:6.1
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
